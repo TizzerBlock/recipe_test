@@ -31,3 +31,11 @@ Route::group(['namespace' => 'Recipe', 'prefix' => 'recipe'], function () {
     Route::patch('/{recipe}', 'UpdateRecipeController');
     Route::delete('/{recipe}', 'DeleteRecipeController');
 });
+Route::group(['namespace' => 'My_user', 'prefix' => 'user'], function () {
+  Route::post('/', 'UserStoreController');
+  Route::get('/', 'IndexStoreController');
+  Route::get('/{user}', 'ShowStoreController');
+  Route::patch('/{user}', 'UpdateUserController');
+  Route::delete('/{user}', 'DeleteUserController');
+});
+

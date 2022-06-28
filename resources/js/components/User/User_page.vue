@@ -1,12 +1,12 @@
 <template>
 <div>
-    singel post
+  user  page
 </div>
 </template>
 
 <script>
 export default {
-    name: "SingelPostComponent.vue"
+  name: "User_page"
 }
 </script>
 

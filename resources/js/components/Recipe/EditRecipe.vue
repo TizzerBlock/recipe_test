@@ -70,7 +70,7 @@ export default {
     updateRecipeInDb() {
       axios.patch('/api/recipe/'+ this.$route.params.id, {name: this.fields.name, email: this.fields.email, recipe_name: this.fields.recipe_name, recipe_position: this.fields.recipe_position, description: this.fields.description, message: this.fields.message})
         .then( res => {
-          router.push({name: 'recipe.show'})
+          router.push({name: 'recipe.show', params: {id: this.$route.params.id}})
         })
     }
   }

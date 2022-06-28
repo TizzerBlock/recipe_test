@@ -1,4 +1,8 @@
 <template>
+  <div class="add_form" style="
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url(https://naurok-test2.nyc3.digitaloceanspaces.com/433397/images/202691_1605727182.jpg)">
   <form  class="postcard">
     <div class="form-row">
       <label for="name">Введіть ім'я</label><input v-model="fields.name" type="text" id="name" required>
@@ -24,13 +28,14 @@
       <label for="contactChoice3">Вечеря</label>
     </div>
     <div class="form-row">
-      <label for="message">Ваш рецепт</label><textarea v-model="fields.message" rows="12" name="message" id="message" required></textarea>
+      <label for="message">Ваш рецепт</label><textarea v-model="fields.message" rows="9" name="message" id="message" required></textarea>
     </div>
     <div class="form-row">
       <input  v-on:click.prevent="addRecipeToDb"
               type="submit" value="Поділитися">
     </div>
   </form>
+  </div>
 </template>
 
 <script>
@@ -68,13 +73,14 @@ body {
   background: #F5E9D9;
 }
 .postcard {
+  background-color: rgba(239, 228, 228, 0.6);
   max-width: 1000px;
-  margin: 50px auto 0;
+  margin: -5px auto 0;
   padding: 20px;
-  background: #fffdee;
+  /*background: #fffdee;*/
   border: 10px solid transparent;
   border-image: 10 repeating-linear-gradient(135deg, #C42061, #C42061 10px, transparent 10px, transparent 20px, #FBCFDF 20px, #FBCFDF 30px, transparent 30px, transparent 40px);
-  color: #605756;
+  color: rgba(24, 16, 16, 0.76);
 }
 .form-row {
   margin-bottom: 15px;

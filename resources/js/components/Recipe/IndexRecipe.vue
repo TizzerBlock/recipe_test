@@ -9,8 +9,13 @@
     </thead>
     <tbody>
     <tr v-for="recipe in recipes">
-      <td>{{recipe.recipe_name}}</td>
+      <td>
+        <router-link :to="{name: 'recipe.show', params: {id: recipe.id}}">{{recipe.recipe_name}}</router-link>
+      </td>
       <td>{{recipe.description}}</td>
+      <td>
+        <router-link :to="{name: 'recipe.edit', params: {id: recipe.id}}">Edit</router-link>
+      </td>
     </tr>
     </tbody>
   </table>
