@@ -5,11 +5,11 @@
       <router-link :to="{name: 'home'}">Ї-дака</router-link>
 <!--      <router-link :to="{name: 'person.index'}">person</router-link>-->
 <!--      <router-link :to="{name: 'person.create'}">Add</router-link>-->
-      <router-link :to="{name: 'user.register'}">Регістрація</router-link>
-      <router-link :to="{name: 'user.log_in'}">Увійти</router-link>
+      <router-link v-if="!login" :to="{name: 'user.register'}">Регістрація</router-link>
+      <router-link v-if="!login" :to="{name: 'user.log_in'}">Увійти</router-link>
       <router-link :to="{name: 'recipe.index'}">Рецепти</router-link>
       <router-link :to="{name: 'recipe.create'}">Додай свій рецепт</router-link>
-      <router-link v-if="login" :to="{name: 'recipe.create'}">{{ login }}</router-link>
+      <router-link v-if="login" :to="{name: 'user.page', params: {id: userInfo.id, name: userInfo.name, email: userInfo.email, login: userInfo.login}}">Кабінет:{{ login }}</router-link>
       <router-view></router-view>
   </div>
 </template>
@@ -19,9 +19,11 @@ export default {
   name: "Index",
   data() {
     return {
-      login: null
+      login: null,
+      userInfo: null
     }
   },
+
   methods: {
     homePage () {
       this.$router.push('/home_page')

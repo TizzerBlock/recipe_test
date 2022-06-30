@@ -5286,7 +5286,8 @@ __webpack_require__.r(__webpack_exports__);
   name: "Index",
   data: function data() {
     return {
-      login: null
+      login: null,
+      userInfo: null
     };
   },
   methods: {
@@ -28440,13 +28441,17 @@ var render = function () {
         _vm._v("Ї-дака"),
       ]),
       _vm._v(" "),
-      _c("router-link", { attrs: { to: { name: "user.register" } } }, [
-        _vm._v("Регістрація"),
-      ]),
+      !_vm.login
+        ? _c("router-link", { attrs: { to: { name: "user.register" } } }, [
+            _vm._v("Регістрація"),
+          ])
+        : _vm._e(),
       _vm._v(" "),
-      _c("router-link", { attrs: { to: { name: "user.log_in" } } }, [
-        _vm._v("Увійти"),
-      ]),
+      !_vm.login
+        ? _c("router-link", { attrs: { to: { name: "user.log_in" } } }, [
+            _vm._v("Увійти"),
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _c("router-link", { attrs: { to: { name: "recipe.index" } } }, [
         _vm._v("Рецепти"),
@@ -28457,9 +28462,23 @@ var render = function () {
       ]),
       _vm._v(" "),
       _vm.login
-        ? _c("router-link", { attrs: { to: { name: "recipe.create" } } }, [
-            _vm._v(_vm._s(_vm.login)),
-          ])
+        ? _c(
+            "router-link",
+            {
+              attrs: {
+                to: {
+                  name: "user.page",
+                  params: {
+                    id: _vm.userInfo.id,
+                    name: _vm.userInfo.name,
+                    email: _vm.userInfo.email,
+                    login: _vm.userInfo.login,
+                  },
+                },
+              },
+            },
+            [_vm._v("Кабінет:" + _vm._s(_vm.login))]
+          )
         : _vm._e(),
       _vm._v(" "),
       _c("router-view"),
