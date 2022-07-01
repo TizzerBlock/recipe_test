@@ -228,6 +228,7 @@ var render = function () {
                   _c(
                     "router-link",
                     {
+                      staticClass: "btn btn-info",
                       attrs: {
                         to: { name: "recipe.edit", params: { id: recipe.id } },
                       },

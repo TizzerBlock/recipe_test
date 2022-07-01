@@ -34,11 +34,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ShowRecipe",
   data: function data() {
     return {
-      fields: ''
+      fields: '',
+      recipeType: ''
     };
   },
   mounted: function mounted() {
@@ -50,6 +52,14 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/api/recipe/' + this.$route.params.id).then(function (res) {
         _this.fields = res.data;
+
+        if (_this.fields.recipe_position === 1) {
+          _this.recipeType = 'Сніданок';
+        } else if (_this.fields.recipe_position === 2) {
+          _this.recipeType = 'Обід';
+        } else if (_this.fields.recipe_position === 3) {
+          _this.recipeType = 'Вечеря';
+        }
       });
     }
   }
@@ -143,35 +153,25 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _vm.fields
     ? _c("div", [
-        _c("div", [_vm._v("\n    name: " + _vm._s(this.fields.name) + "\n  ")]),
+        _c("div", [
+          _vm._v("\n\n    name: " + _vm._s(this.fields.name) + "\n  "),
+        ]),
         _vm._v(" "),
         _c("div", [
           _vm._v("\n    email: " + _vm._s(this.fields.email) + "\n  "),
         ]),
         _vm._v(" "),
+        _c("div", [_c("h1", [_vm._v(_vm._s(this.fields.recipe_name))])]),
+        _vm._v(" "),
         _c("div", [
-          _vm._v(
-            "\n    recipe_name: " + _vm._s(this.fields.recipe_name) + "\n  "
-          ),
+          _vm._v("\n    recipe_position: " + _vm._s(this.recipeType) + "\n  "),
         ]),
         _vm._v(" "),
         _c("div", [
-          _vm._v(
-            "\n    recipe_position: " +
-              _vm._s(this.fields.recipe_position) +
-              "\n  "
-          ),
+          _c("h2", [_vm._v("description: " + _vm._s(this.fields.description))]),
         ]),
         _vm._v(" "),
-        _c("div", [
-          _vm._v(
-            "\n    description: " + _vm._s(this.fields.description) + "\n  "
-          ),
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _vm._v("\n    message: " + _vm._s(this.fields.message) + "\n  "),
-        ]),
+        _c("div", [_c("p", [_vm._v(" " + _vm._s(this.fields.message))])]),
       ])
     : _vm._e()
 }

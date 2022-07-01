@@ -27,7 +27,7 @@
         </td>
         <td>{{recipe.description}}</td>
         <td>
-          <router-link :to="{name: 'recipe.edit', params: {id: recipe.id}}">Виправити</router-link>
+          <router-link class="btn btn-info" :to="{name: 'recipe.edit', params: {id: recipe.id}}">Виправити</router-link>
         </td>
       </tr>
       </tbody>

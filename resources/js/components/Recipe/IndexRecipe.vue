@@ -5,6 +5,7 @@
     <tr>
       <th scope="col">Рецепти</th>
       <th scope="col">Опис страви</th>
+      <th scope="col">type</th>
     </tr>
     </thead>
     <tbody>
@@ -13,6 +14,7 @@
         <router-link :to="{name: 'recipe.show', params: {id: recipe.id}}">{{recipe.recipe_name}}</router-link>
       </td>
       <td>{{recipe.description}}</td>
+      <td>{{recipe.recipe_position}}</td>
     </tr>
     </tbody>
   </table>
@@ -24,7 +26,8 @@ export default {
   name: "IndexRecipe",
   data() {
     return {
-      recipes: null
+      recipes: null,
+      recipeType: ''
     }
   },
   mounted() {

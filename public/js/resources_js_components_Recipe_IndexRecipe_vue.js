@@ -32,11 +32,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "IndexRecipe",
   data: function data() {
     return {
-      recipes: null
+      recipes: null,
+      recipeType: ''
     };
   },
   mounted: function mounted() {
@@ -164,6 +167,8 @@ var render = function () {
             ),
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(recipe.description))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(recipe.recipe_position))]),
           ])
         }),
         0
@@ -181,6 +186,8 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Рецепти")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Опис страви")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("type")]),
       ]),
     ])
   },
